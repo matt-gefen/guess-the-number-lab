@@ -17,10 +17,22 @@ const game = {
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
   },
   prevGuesses: [],
-  getGuess: function() {
-    return prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`)
-  }
+  // getGuess: function() {
+  //   let guess = NaN
+  //   while (parseInt(guess) === NaN) {
+  //     guess = prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`)
+  //   }
+  // }
 }
 
-// let guess = game.getGuess()
+function getGuess() {
+  let guess = NaN
+  while(isNaN(guess)) {
+    guess = prompt(`Enter a guess between 1 and 100`)
+    guess = parseInt(guess)
+  }
+  return guess
 
+  }
+
+  console.log(getGuess())
