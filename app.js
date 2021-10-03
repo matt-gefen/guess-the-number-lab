@@ -9,7 +9,7 @@
 
 const game = {
   title: 'Guess the Number!',
-  biggestNum: 2,
+  biggestNum: 3,
   smallestNum: 1,
   secretNum: null,
   prevGuesses: [],
@@ -26,22 +26,15 @@ const game = {
   },
   play: function() {
     this.secretNum = Math.floor(Math.random() * (this.biggestNum - this.smallestNum + 1)) + 1
-    let playerGuess = this.getGuess()
-    return [playerGuess, this.secretNum]
+    let playerGuess = NaN
+    while (playerGuess != this.secretNum) {
+      playerGuess = this.getGuess()
+      this.prevGuesses.push(playerGuess)
+    }
+    return this.prevGuesses
     
     }
   }
 
 
 console.log(game.play())
-// testing play
-
-// let secret = Math.floor(Math.random() * (2 - 1 + 1)) + 1
-
-// let previous = []
-// let playerGuess = NaN
-
-// while (playerGuess !== secret) {
-//   playerGuess = parseInt(prompt('enter something, dummy'))
-//   previous.push(playerGuess)
-// }
