@@ -9,25 +9,39 @@
 
 const game = {
   title: 'Guess the Number!',
-  biggestNum: 100,
+  biggestNum: 2,
   smallestNum: 1,
   secretNum: null,
-  play: function() {
-    this.secretNum = Math.floor(Math.random() * 
-      (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
-  },
   prevGuesses: [],
   getGuess: function() {
     let guess = NaN
     while(isNaN(guess)) {
       guess = prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`)
       guess = parseInt(guess)
-      if (guess <= this.smallestNum || guess >= this.biggestNum) {
+      if (guess < this.smallestNum || guess > this.biggestNum) {
         guess = NaN
       }
     }
     return guess
+  },
+  play: function() {
+    this.secretNum = Math.floor(Math.random() * (this.biggestNum - this.smallestNum + 1)) + 1
+    let playerGuess = this.getGuess()
+    return [playerGuess, this.secretNum]
+    
+    }
   }
-}
 
-console.log(game.getGuess())
+
+console.log(game.play())
+// testing play
+
+// let secret = Math.floor(Math.random() * (2 - 1 + 1)) + 1
+
+// let previous = []
+// let playerGuess = NaN
+
+// while (playerGuess !== secret) {
+//   playerGuess = parseInt(prompt('enter something, dummy'))
+//   previous.push(playerGuess)
+// }
