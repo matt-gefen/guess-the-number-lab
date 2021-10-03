@@ -16,5 +16,11 @@ const game = {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
   },
-  prevGuesses: []
+  prevGuesses: [],
+  getGuess: function() {
+    return prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`)
+  }
 }
+
+// let guess = game.getGuess()
+
