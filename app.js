@@ -30,6 +30,9 @@ function getGuess() {
   while(isNaN(guess)) {
     guess = prompt(`Enter a guess between 1 and 100`)
     guess = parseInt(guess)
+    if (guess <= 1 || guess >= 100) {
+      guess = NaN
+    }
   }
   return guess
 
