@@ -1,6 +1,6 @@
 const game = {
   title: 'Guess the Number!',
-  biggestNum: 5,
+  biggestNum: 10,
   smallestNum: 1,
   secretNum: null,
   playerGuess: null,
@@ -10,6 +10,12 @@ const game = {
     while(isNaN(guess)) {
       guess = prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`)
       guess = parseInt(guess)
+      if (guess > this.secretNum) {
+        this.biggestNum = guess
+      }
+      else {
+        this.smallestNum = guess
+      }
       if (guess < this.smallestNum || guess > this.biggestNum) {
         guess = NaN
       }
