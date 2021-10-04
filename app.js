@@ -35,6 +35,8 @@ const game = {
     }
   },
   play: function() {
+    this.smallestNum = parseInt(prompt(`Enter the low end of the range`))
+    this.biggestNum = parseInt(prompt(`Enter the high end of the range`))
     this.secretNum = Math.floor(Math.random() * (this.biggestNum - this.smallestNum + 1)) + 1
     this.playerGuess = NaN
     while (this.playerGuess != this.secretNum) {
