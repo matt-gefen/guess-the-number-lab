@@ -21,13 +21,13 @@ const game = {
     while(isNaN(guess)) {
       guess = prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`)
       guess = parseInt(guess)
-      if (guess > this.secretNum) {
+      if ((guess > this.secretNum) && (guess <= this.biggestNum)) {
         this.biggestNum = guess
       }
-      else {
+      else if ((guess < this.secretNum) && (guess >= this.smallestNum)) {
         this.smallestNum = guess
       }
-      if (guess < this.smallestNum || guess > this.biggestNum) {
+      else if ((guess < this.smallestNum) && (guess > this.biggestNum)) {
         guess = NaN
       }
     }
