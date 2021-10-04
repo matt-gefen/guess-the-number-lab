@@ -27,7 +27,7 @@ const game = {
       else if ((guess < this.secretNum) && (guess >= this.smallestNum)) {
         this.smallestNum = guess
       }
-      else if ((guess < this.smallestNum) && (guess > this.biggestNum)) {
+      else if ((guess < this.smallestNum) || (guess > this.biggestNum)) {
         guess = NaN
       }
     }
