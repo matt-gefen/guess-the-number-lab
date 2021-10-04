@@ -1,10 +1,21 @@
 const game = {
   title: 'Guess the Number!',
-  biggestNum: 10,
-  smallestNum: 1,
-  secretNum: null,
-  playerGuess: null,
+  biggestNum: NaN,
+  smallestNum: NaN,
+  secretNum: NaN,
+  playerGuess: NaN,
   prevGuesses: [],
+  getRange: function () {
+    while(isNaN(this.smallestNum)) {
+      this.smallestNum = prompt(`Enter the low end of the range`)
+      this.smallestNum = parseInt(this.smallestNum)
+    }
+    while(isNaN(this.biggestNum)) {
+      this.biggestNum = prompt(`Enter the high end of the range`)
+      this.biggestNum = parseInt(this.biggestNum)
+
+    }
+  },
   getGuess: function() {
     let guess = NaN
     while(isNaN(guess)) {
@@ -35,10 +46,8 @@ const game = {
     }
   },
   play: function() {
-    this.smallestNum = parseInt(prompt(`Enter the low end of the range`))
-    this.biggestNum = parseInt(prompt(`Enter the high end of the range`))
+    this.getRange()
     this.secretNum = Math.floor(Math.random() * (this.biggestNum - this.smallestNum + 1)) + 1
-    this.playerGuess = NaN
     while (this.playerGuess != this.secretNum) {
       this.playerGuess = this.getGuess()
       this.prevGuesses.push(this.playerGuess)
