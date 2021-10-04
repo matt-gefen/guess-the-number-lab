@@ -47,7 +47,7 @@ const game = {
   },
   play: function() {
     this.getRange()
-    this.secretNum = Math.floor(Math.random() * (this.biggestNum - this.smallestNum + 1)) + 1
+    this.secretNum = Math.floor(Math.random() * (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
     while (this.playerGuess != this.secretNum) {
       this.playerGuess = this.getGuess()
       this.prevGuesses.push(this.playerGuess)
@@ -58,3 +58,4 @@ const game = {
 
 
 game.play()
+// console.log(Math.floor(Math.random() * (200 - 100 + 1)) + 100)
